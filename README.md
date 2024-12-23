@@ -93,18 +93,15 @@ smote = SMOTE(random_state=42)
 X_resampled, y_resampled = smote.fit_resample(X_train, y_train)
 ```
 
+---
+
+## Hasil dan Analisis
 
 ### Analisis Performa
 
 - **Random Forest:** Mencapai kinerja yang seimbang di kedua kelas (Gunung dan Pantai). Serta menunjukkan nilai precision, recall dan f1-score yang baik, yang menunjukkan efektivitasnya dalam mengklasifikasikan kedua preferensi. 
 - **XGBoost:** Menunjukkan kinerja yang baik juga dalam precision, recall dan f1-score. XGBoost sedikit lebih baik dalam mengidentifikasi Gunung daripada Random Forest.
 - **FNN:** Berdasarkan akurasinya, FNN menunjukkan kinerja yang baik tetapi mungkin sedikit kurang presisi daripada model Random Forest dan XGBoost. FNN juga mungkin memerlukan penyempurnaan lebih lanjut untuk mencapai atau melampaui performa dari model Forest dan XGBoost.
-
----
-
-## Hasil dan Analisis
-
-### Analisis Performa
 
 #### Random Forest Evaluation:
 ```
