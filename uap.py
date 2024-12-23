@@ -77,7 +77,7 @@ with col1:
             autopct='%1.1f%%', 
             startangle=90, 
             colors=['#2196F3', '#4CAF50'], 
-            textprops={'fontsize': 8})  # Sesuaikan warna dan font
+            textprops={'fontsize': 8})  
     plt.axis('equal')
     st.pyplot(plt)
 
