@@ -157,10 +157,13 @@ weighted avg       0.89      0.89      0.89     10489
 
   - **Random Forest:**
     ![Confusion Matrix - Random Forest](assets/cm_randomforest.png)
+
   - **XGBoost:**
     ![Confusion Matrix - XGBoost](assets/cm_xgboost.png)
+
   - **Feedforward Neural Network:**
     ![Confusion Matrix - FNN](assets/cm_fnn.png)
+
     Dengan grafik loss dan accuracy sebagai berikut. 
     ![Loss - FNN](assets/loss.png)
     ![Accuracy - FNN](assets/accuracy.png)
@@ -182,13 +185,14 @@ weighted avg       0.89      0.89      0.89     10489
 ## Link Live Demo
 
 Aplikasi ini telah di-deploy dan dapat diakses melalui tautan berikut:
-**[Live Demo Aplikasi](https://example.com)**
+**[Prediksi Preferensi Liburan](https://ekanurmairisma-prediksiliburan.streamlit.app/)**
 
 ---
 
 ## Author
 
-@ekanurmairisma
+**[Eka Nur Mairisma](https://github.com/ekanurmairisma)**
+
 
 ---
 Terima kasih telah menggunakan aplikasi prediksi preferensi liburan ini! 
