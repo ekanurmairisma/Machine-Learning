@@ -148,26 +148,23 @@ input_data = [
     environmental_concerns_map[environmental_concerns],
 ]
 
-input_data.extend([0, 0])  # Menambahkan kolom kosong jika diperlukan oleh model
+input_data.extend([0, 0])  
 
-# Pilih model untuk prediksi
 model_choice = st.selectbox("Pilih Model", ["Random Forest", "XGBoost", "Feedforward Neural Network"])
 
-# Membuat prediksi
+
 if st.button('Prediksi'):
     prediction_proba = make_prediction(model_choice, input_data)
     result = 'Gunung' if prediction_proba[1] > prediction_proba[0] else 'Pantai'
 
-    # Tampilkan hasil prediksi
     st.subheader(f"Prediksi Preferensi:")
     st.success(result)
     st.markdown(f"**Model yang digunakan**: {model_choice}")
-    
-    # Tampilkan probabilitas untuk Gunung dan Pantai
+ 
     st.markdown(f"**Probabilitas Gunung**: {prediction_proba[1]*100:.2f}%")
     st.markdown(f"**Probabilitas Pantai**: {prediction_proba[0]*100:.2f}%")
 
-    # Menampilkan visualisasi probabilitas dengan progress bar
+
     data_df = pd.DataFrame(
         {
             "Preferensi": ["Gunung", "Pantai"],
@@ -175,7 +172,6 @@ if st.button('Prediksi'):
         }
     )
 
-    # Tampilkan data editor dengan progress bar
     st.data_editor(
         data_df,
         column_config={
