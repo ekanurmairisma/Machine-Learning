@@ -114,7 +114,7 @@ with col6:
 
 with st.sidebar:
     st.header("Masukkan Informasi Anda")
-    age = st.number_input("Usia (tahun)", min_value=0, max_value=100, step=1)
+    age = st.number_input("Usia (tahun)", min_value=18, max_value=89, step=1)
     gender = st.selectbox("Gender", ["Male", "Female", "Non-Binary"])
     income = st.number_input("Pendapatan Tahunan (USD)", min_value=0, step=1000)
     travel_frequency = st.number_input("Frekuensi Liburan per Tahun", min_value=0, max_value=10, step=1)
