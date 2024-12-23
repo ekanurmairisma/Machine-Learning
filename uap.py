@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import gdown
+import os
 import numpy as np
 from tensorflow.keras.models import load_model
 import pandas as pd
@@ -13,15 +14,28 @@ import plotly.express as px
 
 df = pd.read_csv('mountains_vs_beaches_preferences.csv')
 
-#Download model dari Google Drive
-#gdown.download("https://drive.google.com/uc?id=1-1YdqcTG12tCNCAxdPzZElhONDPxhdrU", "rf_model.pkl", quiet=False)
-#gdown.download("https://drive.google.com/uc?id=1CsKKBZgfUv2qpjUm5uoWzcpALkRBa-VK", "xgb_model.pkl", quiet=False)
-#gdown.download("https://drive.google.com/uc?id=1-FWZSvWNG_-EGpcmdYQVxFnCY37aDwki", "fnn_model.h5", quiet=False)
+# Fungsi untuk mengunduh file jika belum ada
+def download_if_not_exists(url, output_path):
+    if not os.path.exists(output_path):
+        print(f"File {output_path} tidak ditemukan. Mengunduh...")
+        gdown.download(url, output_path, quiet=False)
+    else:
+        print(f"File {output_path} sudah ada. Mengabaikan unduhan.")
+
+files = [
+    ("https://drive.google.com/uc?id=1-1YdqcTG12tCNCAxdPzZElhONDPxhdrU", "rf_model.pkl"),
+    ("https://drive.google.com/uc?id=1CsKKBZgfUv2qpjUm5uoWzcpALkRBa-VK", "xgb_model.pkl"),
+    ("https://drive.google.com/uc?id=1-FWZSvWNG_-EGpcmdYQVxFnCY37aDwki", "fnn_model.h5"),
+]
+
+# Cek dan unduh file jika diperlukan
+for url, output_path in files:
+    download_if_not_exists(url, output_path)
 
 # Memuat model yang sudah disimpan
-rf_model = joblib.load('model/rf_model.pkl')
-xgb_model = joblib.load('model/xgb_model.pkl')
-fnn_model = load_model('model/fnn_model.h5')
+rf_model = joblib.load("rf_model.pkl")
+xgb_model = joblib.load("xgb_model.pkl")
+fnn_model = load_model("fnn_model.h5")
 
 
 # Fungsi untuk membuat prediksi berdasarkan model yang dipilih
